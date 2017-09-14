@@ -33,9 +33,9 @@ inline void encodeb64(const unsigned char* pch, char* buff)
 
 void sha1_hash(const char* input, char* output, uint32_t len)
 {
-  char str[38] __attribute__((aligned(32))); // 26 + 11 + 1
-  uint32_t prehash[5] __attribute__((aligned(32)));
-  uint32_t hash[5] __attribute__((aligned(32))) = { 0 };
+  __declspec(align(32)) char  str[38]  ;// __attribute__((aligned(32))); // 26 + 11 + 1
+  __declspec(align(32)) uint32_t prehash[5];// __attribute__((aligned(32)));
+  __declspec(align(32)) uint32_t hash[5];// __attribute__((aligned(32))) = { 0 };
   int i = 0;
   SHA_CTX ctx;
   SHA1_Init(&ctx);

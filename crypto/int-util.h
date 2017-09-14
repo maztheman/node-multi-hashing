@@ -8,8 +8,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
+#ifndef _MSC_VER
 #include <sys/param.h>
-
+#endif
 /*
  * Create GNU compatible endian macros. We use the values for __LITTLE_ENDIAN
  * and __BIG_ENDIAN based on endian.h.
@@ -26,6 +27,16 @@
 #endif /* __sun */
 
 #if defined(_MSC_VER)
+#define _LITTLE_ENDIAN
+#define LITTLE_ENDIAN   1234
+#define BIG_ENDIAN      4321
+#ifdef _LITTLE_ENDIAN
+#define BYTE_ORDER      LITTLE_ENDIAN
+#else
+#define BYTE_ORDER      BIG_ENDIAN
+#endif /* _LITTLE_ENDIAN */
+
+
 #include <stdlib.h>
 
 static inline uint32_t rol32(uint32_t x, int r) {

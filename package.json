@@ -10,8 +10,8 @@
         "type": "git",
         "url": "https://github.com/zone117x/node-multi-hashing.git"
     },
-    "dependencies" : {
-        "bindings" : "*"
+    "dependencies": {
+        "bindings": "*"
     },
     "keywords": [
         "scrypt",
